@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="user_dict"> <!--xmlns:th="http://www.thymeleaf.org"-->
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-resource.js"></script>
+    <script src="/js/angular-route.js"></script>
+    <script src="/js/dictionary.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+</head>
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">DictChallenge</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/user/">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn btn-middle pull-right btn-primary" onclick="location.href='/login'">
+                Log in 
+            </button>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+</body>
+</html>

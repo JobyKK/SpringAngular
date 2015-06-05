@@ -1,0 +1,23 @@
+<form>
+    <h1>Enter language</h1>
+        <input ng-model="dict.language1" type="text" class="input-block-level" placeholder="Language 1" style="max-width:220px;"/><br>
+        <input ng-model="dict.language2" type="text" class="input-block-level" placeholder="Language 2" style="max-width:220px;"/>
+    <h1>Enter words</h1>
+        <div ng-repeat="pair in dict.pairs">
+            <div class="row">
+                <div class="span3">
+                    <input ng-model="pair.word1" type="text" class="input-block-level" placeholder="word 1"/>
+                </div>
+                <div class="span3">
+                    <input ng-model="pair.word2" type="text" class="input-block-level" placeholder="word 2"/>
+                </div>
+            </div>
+        </div>
+     {{dict | json}}<br>
+            <button class="btn btn-large btn-primary" type="submit" ng-click="add_dict()">
+                Submit
+            </button>
+            <button class="btn btn-large btn-primary" type="submit" ng-click="close_dict()">
+                Close
+            </button>
+</form>

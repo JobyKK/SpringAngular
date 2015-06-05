@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="user_dict"> 
+<head>
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-resource.js"></script>
+    <script src="/js/angular-route.js"></script>
+    <script src="/js/dictionary.js"></script>
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+</head>
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">DictChallenge</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/user/">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn btn-middle pull-right btn-primary" onclick="location.href='/login'">
+                Log in 
+            </button>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+	<div class="row">
+		<div class="span6">
+			<h1>User info</h1>
+			<div ng-controller="ShowUserInfo">
+				{{name}}: <input type="text" ng-model="inputName"/> {{inputName}}
+				<ul>
+					<li ng-repeat="(key, value) in user" ng-if="null!=value">
+						<div >
+							<strong>{{key}}</strong>-{{value}}
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="span6">
+			<h1>User's dictionary list</h1>
+			<div ng-controller="ShowUserDictionary">
+				<ul>
+			        <li ng-repeat="dict in dicts">
+			        	{{dict.name}}: 
+			        </li>
+			  </ul>
+			</div>
+		<h1>Created dictionaries</h1>
+			<div ng-controller="CreateDictionary">
+				<form>
+					<div class="row">
+						<div class="span3">
+								Name:<input type="text" ng-model="dict.name" style="max-width:150px"/>
+						</div>
+						
+						<div class="span2">
+								Row number:<input type="text" ng-model="rowNumber" style="max-width:30px"/>
+						</div>
+						
+						<div class="span1">
+							<button ng-click="addpairs()" class="btn btn-middle btn-primary" type="submit">
+		                		Add
+		            		</button>
+	            		</div>
+            		</div>
+				</form>
+				<div ng-if="dict.pairs.length > 0">
+					<form>
+    <h1>Enter language</h1>
+        <input ng-model="dict.language1" type="text" class="input-block-level" placeholder="Language 1" style="max-width:220px;"/><br/>
+        <input ng-model="dict.language2" type="text" class="input-block-level" placeholder="Language 2" style="max-width:220px;"/>
+    <h1>Enter words</h1>
+        <div ng-repeat="pair in dict.pairs">
+            <div class="row">
+                <div class="span3">
+                    <input ng-model="pair.word1" type="text" class="input-block-level" placeholder="word 1"/>
+                </div>
+                <div class="span3">
+                    <input ng-model="pair.word2" type="text" class="input-block-level" placeholder="word 2"/>
+                </div>
+            </div>
+        </div>
+     {{dict | json}}<br/>
+            <button class="btn btn-large btn-primary" type="submit" ng-click="add_dict()">
+                Submit
+            </button>
+            <button class="btn btn-large btn-primary" type="submit" ng-click="close_dict()">
+                Close
+            </button>
+</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
