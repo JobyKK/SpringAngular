@@ -12,9 +12,9 @@ import demo.config.WebConfig;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan("demo/")
-public class TestTestApplication {
+public class Main {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestTestApplication.class, args);
+        SpringApplication.run(Main.class, args);
     }
 }
