@@ -22,6 +22,6 @@ CREATE TABLE `User` (
   sign_up_date date, 
   status       varchar(50) NOT NULL, 
   PRIMARY KEY (id));
-ALTER TABLE Dictionary ADD INDEX FKDictionary640034 (owner), ADD CONSTRAINT FKDictionary640034 FOREIGN KEY (owner) REFERENCES `User` (id);
-ALTER TABLE User_Dictionary ADD INDEX FKUser_Dicti617124 (dictionary_id), ADD CONSTRAINT FKUser_Dicti617124 FOREIGN KEY (dictionary_id) REFERENCES Dictionary (id);
-ALTER TABLE User_Dictionary ADD INDEX FKUser_Dicti811741 (user_id), ADD CONSTRAINT FKUser_Dicti811741 FOREIGN KEY (user_id) REFERENCES `User` (id);
+ALTER TABLE Dictionary ADD INDEX FKDictionary640034 (owner), ADD CONSTRAINT FKDictionary640034 FOREIGN KEY (owner) REFERENCES `User` (id) ON DELETE CASCADE;
+ALTER TABLE User_Dictionary ADD INDEX FKUser_Dicti617124 (dictionary_id), ADD CONSTRAINT FKUser_Dicti617124 FOREIGN KEY (dictionary_id) REFERENCES Dictionary (id) ON DELETE CASCADE;
+ALTER TABLE User_Dictionary ADD INDEX FKUser_Dicti811741 (user_id), ADD CONSTRAINT FKUser_Dicti811741 FOREIGN KEY (user_id) REFERENCES `User` (id) ON DELETE CASCADE;
