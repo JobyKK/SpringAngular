@@ -1,5 +1,4 @@
-## SpringAngular
----------------------
+# SpringAngular
 
 ### Info
 ---------------------
