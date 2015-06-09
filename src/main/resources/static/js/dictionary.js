@@ -22,8 +22,6 @@ var app = angular.module('user_dict', ['ngResource', 'ngRoute']);
 	    $routeProvider
 	    .when("/user",
 	        { templateUrl: "user_menu.html" })
-	    .when("/user/dict",
-	        { templateUrl: "http://localhost:8080/user/dict" });
 	  })
 	 .config(function($locationProvider) {
 		 //$locationProvider.html5Mode(true);
@@ -38,7 +36,6 @@ var app = angular.module('user_dict', ['ngResource', 'ngRoute']);
 		$http.get('/user/dicts/json').success(function(data){
 			$scope.dicts = data;
 		})
-		$scope.dicts=[{"id":1,"language1":"ru","language2":"eng","name":"chapter1"},{"id":2,"language1":"ru","language2":"eng","name":"chapter2"}];
 	})
 	.controller('CreateDictionary', function($scope, $http, $location, $route, $rootScope, $window){
 		$scope.dict = {	
@@ -69,6 +66,8 @@ var app = angular.module('user_dict', ['ngResource', 'ngRoute']);
 			};
 		}
 	})
+	//done for create dynamic array
+	//example ng-repeat="n in [] | range:100"
 	.filter('range', function() {
   		return function(input, total) {
 		    total = parseInt(total);
